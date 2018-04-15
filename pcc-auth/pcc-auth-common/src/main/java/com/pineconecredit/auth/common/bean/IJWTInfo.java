@@ -9,21 +9,21 @@ package com.pineconecredit.auth.common.bean;
  */
 public interface IJWTInfo {
     /**
-     * 获取用户名
+     * 获取登陆手机号
      * @return
      */
-    String getUniqueName();
+    String getRegPhoneNumber();
 
     /**
-     * 获取用户ID
+     * 获取全系统唯一账号编号
      * @return
      */
-    String getId();
+    String getAid();
 
     /**
-     * 获取名称
+     * 获取账号类型
      * @return
      */
-    String getName();
+    String getAccountType();
 
 }

@@ -58,9 +58,9 @@ public class JWTHelper {
      */
     public static String generateToken(IJWTInfo jwtInfo, byte priKey[], int expire) throws Exception {
         String compactJws = Jwts.builder()
-                .setSubject(jwtInfo.getUniqueName())
-                .claim(CommonConstants.JWT_KEY_USER_ID, jwtInfo.getId())
-                .claim(CommonConstants.JWT_KEY_NAME, jwtInfo.getName())
+                .setSubject(jwtInfo.getRegPhoneNumber())
+                .claim(CommonConstants.JWT_KEY_USER_ID, jwtInfo.getAid())
+                .claim(CommonConstants.JWT_KEY_NAME, jwtInfo.getAccountType())
                 .setExpiration(DateTime.now().plusSeconds(expire).toDate())
                 .signWith(SignatureAlgorithm.RS256, rsaKeyHelper.getPrivateKey(priKey))
                 .compact();

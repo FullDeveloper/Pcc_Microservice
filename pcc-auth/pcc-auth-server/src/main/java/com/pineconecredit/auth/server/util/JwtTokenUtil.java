@@ -23,6 +23,10 @@ public class JwtTokenUtil {
     @Autowired
     private KeyConfiguration keyConfiguration;
 
+    public String generateToken(IJWTInfo jwtInfo) throws Exception {
+        return JWTHelper.generateToken(jwtInfo, keyConfiguration.getUserPriKey(),expire);
+    }
+
     public IJWTInfo getInfoFromToken(String token) throws Exception {
         return JWTHelper.getInfoFromToken(token, keyConfiguration.getUserPubKey());
     }
