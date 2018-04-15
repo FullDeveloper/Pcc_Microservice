@@ -7,6 +7,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,20 @@ public class RsaKeyHelper {
 
     public static String toHexString(byte[] byteArray) {
         return (new BASE64Encoder()).encodeBuffer(byteArray);
+    }
+
+
+    /**
+     * 获取密钥
+     *
+     * @param privateKey
+     * @return
+     * @throws Exception
+     */
+    public PrivateKey getPrivateKey(byte[] privateKey) throws Exception {
+        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(privateKey);
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        return kf.generatePrivate(spec);
     }
 
     /**

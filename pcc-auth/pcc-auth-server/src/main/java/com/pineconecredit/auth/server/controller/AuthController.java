@@ -17,16 +17,10 @@ import java.util.List;
  * Description:
  */
 @Controller
-public class AuthenticationController {
+public class AuthController {
 
     @Autowired
     private ClientMapper clientMapper;
 
-    @RequestMapping(value = "/getClientList")
-    @ResponseBody
-    public List getClientList(){
-        PageHelper.startPage(1,2);
-        return clientMapper.selectAll();
-    }
 
 }

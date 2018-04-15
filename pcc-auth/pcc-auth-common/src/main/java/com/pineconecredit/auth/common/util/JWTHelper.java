@@ -6,6 +6,8 @@ import com.pineconecredit.auth.common.constant.CommonConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.joda.time.DateTime;
 
 /**
  * Created by IntelliJ IDEA.
@@ -43,6 +45,26 @@ public class JWTHelper {
         Claims body = claimsJws.getBody();
         return new JWTInfo(body.getSubject(), StringHelper.getObjectValue(body.get(CommonConstants.JWT_KEY_USER_ID)),
                 StringHelper.getObjectValue(body.get(CommonConstants.JWT_KEY_NAME)));
+    }
+
+    /**
+     * 密钥加密token
+     *
+     * @param jwtInfo
+     * @param priKey
+     * @param expire
+     * @return
+     * @throws Exception
+     */
+    public static String generateToken(IJWTInfo jwtInfo, byte priKey[], int expire) throws Exception {
+        String compactJws = Jwts.builder()
+                .setSubject(jwtInfo.getUniqueName())
+                .claim(CommonConstants.JWT_KEY_USER_ID, jwtInfo.getId())
+                .claim(CommonConstants.JWT_KEY_NAME, jwtInfo.getName())
+                .setExpiration(DateTime.now().plusSeconds(expire).toDate())
+                .signWith(SignatureAlgorithm.RS256, rsaKeyHelper.getPrivateKey(priKey))
+                .compact();
+        return compactJws;
     }
 
 }

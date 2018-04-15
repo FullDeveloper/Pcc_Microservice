@@ -14,6 +14,9 @@
         <module>pcc-common</module>
         <module>pcc-provider</module>
         <module>pcc-zuul</module>
+        <module>pcc-schedule</module>
+        <module>pcc-cache</module>
+        <module>pcc-config</module>
     </modules>
 
     <parent>

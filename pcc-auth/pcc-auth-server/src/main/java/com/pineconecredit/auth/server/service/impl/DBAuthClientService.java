@@ -1,8 +1,10 @@
 package com.pineconecredit.auth.server.service.impl;
 
+import com.pineconecredit.auth.server.bean.ClientInfo;
 import com.pineconecredit.auth.server.entity.Client;
 import com.pineconecredit.auth.server.mapper.ClientMapper;
 import com.pineconecredit.auth.server.service.AuthClientService;
+import com.pineconecredit.auth.server.util.ClientTokenUtil;
 import com.pineconecredit.common.exception.auth.ClientInvalidException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,22 +24,31 @@ public class DBAuthClientService implements AuthClientService {
 
     @Autowired
     private ClientMapper clientMapper;
+    @Autowired
+    private ClientTokenUtil clientTokenUtil;
 
     @Override
     public String apply(String clientId, String secret) throws Exception {
-        return null;
+        Client client = getClient(clientId, secret);
+        return clientTokenUtil.generateToken(new ClientInfo(client.getCode(),client.getName(),client.getId().toString()));
+
     }
 
     @Override
     public List<String> getAllowedClient(String serviceId, String secret) {
-        return null;
+        Client info = this.getClient(serviceId, secret);
+        List<String> clients = clientMapper.selectAllowedClient(info.getId() + "");
+        if(clients==null) {
+            new ArrayList<String>();
+        }
+        return clients;
     }
 
     @Override
     public List<String> getAllowedClient(String clientId) {
         Client info = getClient(clientId);
         List<String> clients = clientMapper.selectAllowedClient(clientId);
-        if(clients==null) {
+        if (clients == null) {
             new ArrayList<String>();
         }
         return clients;
@@ -47,8 +58,8 @@ public class DBAuthClientService implements AuthClientService {
         Client client = new Client();
         client.setCode(clientId);
         client = clientMapper.selectOne(client);
-        if(client==null||!client.getSecret().equals(secret)){
-            throw new ClientInvalidException("Client not found or Client secret is error!");
+        if (client == null || !client.getSecret().equals(secret)) {
+            throw new ClientInvalidException("Client "+clientId+" not found or Client secret is error!");
         }
         return client;
     }
@@ -67,6 +78,11 @@ public class DBAuthClientService implements AuthClientService {
 
     @Override
     public void validate(String clientId, String secret) throws Exception {
-
+        Client client = new Client();
+        client.setCode(clientId);
+        client = clientMapper.selectOne(client);
+        if (client == null || !client.getSecret().equals(secret)) {
+            throw new ClientInvalidException("Client "+clientId+" not found or Client secret is error!");
+        }
     }
 }

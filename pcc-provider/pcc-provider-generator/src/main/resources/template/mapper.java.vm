@@ -10,7 +10,6 @@ import tk.mybatis.mapper.common.Mapper;
  * @email ${email}
  * @date ${datetime}
  */
-@Mapper
 public interface ${className}Mapper extends Mapper<${className}> {
 
 }

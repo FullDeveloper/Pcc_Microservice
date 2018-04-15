@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pineconecredit.provider.merchant.mapper.MerchantMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.pineconecredit.provider.merchant.entity.Merchant" id="merchantMap">
+        <result property="id" column="Id"/>
+        <result property="aid" column="aid"/>
+        <result property="name" column="name"/>
+        <result property="address" column="address"/>
+        <result property="areCode" column="are_code"/>
+        <result property="enterProtocol" column="enter_protocol"/>
+        <result property="idCardFrontScan" column="id_card_front_scan"/>
+        <result property="idCardReverseScan" column="id_card_reverse_scan"/>
+        <result property="licenseNumer" column="license_numer"/>
+        <result property="licensePhoto" column="license_photo"/>
+        <result property="openBankNumber" column="open_bank_number"/>
+        <result property="openBankScan" column="open_bank_scan"/>
+        <result property="otherMaterial" column="other_material"/>
+        <result property="auditState" column="audit_state"/>
+        <result property="auditUser" column="audit_user"/>
+        <result property="auditTime" column="audit_time"/>
+        <result property="auditFeedback" column="audit_feedback"/>
+        <result property="enterpriseLinkmanName" column="enterprise_linkman_name"/>
+        <result property="enterpriseLinkmanMobile" column="enterprise_linkman_mobile"/>
+        <result property="adminAid" column="admin_aid"/>
+        <result property="adminName" column="admin_name"/>
+        <result property="adminIdCardNo" column="admin_id_card_no"/>
+        <result property="adminIdCardFrontScan" column="admin_id_card_front_scan"/>
+        <result property="adminIdCardReverseSacen" column="admin_id_card_reverse_sacen"/>
+        <result property="adminMobile" column="admin_mobile"/>
+    </resultMap>
+
+</mapper>

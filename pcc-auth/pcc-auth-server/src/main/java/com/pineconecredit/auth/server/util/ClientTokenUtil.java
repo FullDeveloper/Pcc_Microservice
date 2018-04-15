@@ -25,6 +25,10 @@ public class ClientTokenUtil {
     @Autowired
     private KeyConfiguration keyConfiguration;
 
+    public String generateToken(IJWTInfo jwtInfo) throws Exception {
+        return JWTHelper.generateToken(jwtInfo, keyConfiguration.getServicePriKey(), expire);
+    }
+
     public IJWTInfo getInfoFromToken(String token) throws Exception {
         return JWTHelper.getInfoFromToken(token, keyConfiguration.getServicePubKey());
     }

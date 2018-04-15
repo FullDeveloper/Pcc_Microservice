@@ -6,6 +6,14 @@ import ${package}.entity.${className};
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+
 @Controller
 @RequestMapping("${secondModuleName}")
 public class ${className}Controller extends BaseController<${className}Biz,${className}> {

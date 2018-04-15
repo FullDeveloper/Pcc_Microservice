@@ -3,6 +3,7 @@ package com.pineconecredit.auth.server.runner;
 import com.pineconecredit.auth.server.configuration.KeyConfiguration;
 import com.pineconecredit.auth.common.util.RsaKeyHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -32,6 +33,7 @@ public class AuthServerRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         if(redisTemplate.hasKey(REDIS_USER_PRI_KEY) && redisTemplate.hasKey(REDIS_USER_PUB_KEY)
                 && redisTemplate.hasKey(REDIS_SERVICE_PRI_KEY) && redisTemplate.hasKey(REDIS_SERVICE_PUB_KEY)){
             keyConfiguration.setUserPriKey(RsaKeyHelper.toBytes(redisTemplate.opsForValue().get(REDIS_USER_PRI_KEY)));

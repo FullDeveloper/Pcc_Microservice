@@ -1,6 +1,19 @@
+server:
+  port: 8877
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    serviceUrl:
+        defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+
 spring:
-  application:
-    name: pcc-auth-server
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
   redis:
     database: 1
     host: ${REDIS_HOST:localhost}
@@ -9,9 +22,9 @@ spring:
     max-active: 20
   datasource:
     name: test
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/pcc_auth_server?useUnicode=true&characterEncoding=UTF8
-    username: root
-    password: root
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/PineConeCredit?useUnicode=true&characterEncoding=UTF8
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:123456}
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
@@ -28,14 +41,9 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  application:
+    name: pcc-auth-server
 
-eureka:
-    instance:
-        prefer-ip-address: true
-        ip-address: 127.0.0.1
-    client:
-        serviceUrl:
-            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
 
 mybatis:
   basepackage: com.pineconecredit.auth.server.mapper
@@ -51,5 +59,11 @@ client:
   rsa-secret: x2318^^(*WRYQWR(QW&T
   token-header: x-client-token
   expire: 14400
-server:
-  port: 8888
+
+logging:
+  level:
+    com:
+      pineconecredit:
+        auth:
+          server:
+            mapper: DEBUG

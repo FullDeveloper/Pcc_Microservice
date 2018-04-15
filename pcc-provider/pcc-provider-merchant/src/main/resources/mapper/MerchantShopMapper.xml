@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pineconecredit.provider.merchant.mapper.MerchantShopMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.pineconecredit.provider.merchant.entity.MerchantShop" id="merchantShopMap">
+        <result property="id" column="Id"/>
+        <result property="maid" column="maid"/>
+        <result property="aid" column="aid"/>
+        <result property="shopName" column="shop_name"/>
+        <result property="shopIntroduce" column="shop_introduce"/>
+        <result property="areaCode" column="area_code"/>
+        <result property="address" column="address"/>
+        <result property="telephone" column="telephone"/>
+        <result property="licenseNumber" column="license_number"/>
+        <result property="licensePhoto" column="license_photo"/>
+        <result property="shopPhotos" column="shop_photos"/>
+        <result property="shopBrand" column="shop_brand"/>
+        <result property="shopStyles" column="shop_styles"/>
+        <result property="goodCode" column="good_code"/>
+        <result property="mgrAid" column="mgr_aid"/>
+        <result property="mgrHandPhoto" column="mgr_hand_photo"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="eLog" column="e_log"/>
+        <result property="eIp" column="e_ip"/>
+        <result property="eIpNo" column="e_ip_no"/>
+        <result property="eRegistInfo" column="e_regist_info"/>
+        <result property="eBatchApproveNum" column="e_batch_approve_num"/>
+        <result property="shopState" column="shop_state"/>
+        <result property="shopTypes" column="shop_types"/>
+        <result property="mainType" column="main_type"/>
+        <result property="otherMaterial" column="other_material"/>
+        <result property="auditUser" column="audit_user"/>
+        <result property="auditFeedback" column="audit_feedback"/>
+        <result property="auditTime" column="audit_time"/>
+        <result property="auditState" column="audit_state"/>
+    </resultMap>
+
+</mapper>
