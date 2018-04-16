@@ -10,4 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("merchant")
 public class MerchantController extends BaseController<MerchantBiz,Merchant> {
 
+
+
 }

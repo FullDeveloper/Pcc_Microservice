@@ -13,13 +13,30 @@ public class JwtAuthenticationRequest implements Serializable {
 
     private static final long serialVersionUID = -8445943548965154778L;
 
-    private String username;
+    private String phoneNumber;
     private String password;
+    private String accountType;
 
-
-    public JwtAuthenticationRequest(String username, String password) {
-        this.username = username;
+    public JwtAuthenticationRequest(String phoneNumber, String password, String accountType) {
+        this.phoneNumber = phoneNumber;
         this.password = password;
+        this.accountType = accountType;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public JwtAuthenticationRequest() {
@@ -33,11 +50,5 @@ public class JwtAuthenticationRequest implements Serializable {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 }

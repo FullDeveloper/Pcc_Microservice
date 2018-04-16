@@ -9,7 +9,7 @@ import javax.persistence.*;
  *
  * @author ZhouRunBin
  * @email 1875222156@qq.com
- * @date 2018-04-16 23:11:01
+ * @date 2018-04-16 23:30:47
  */
 @Table(name = "merchant")
 public class Merchant implements Serializable{
@@ -68,9 +68,9 @@ private static final long serialVersionUID=1L;
     private String otherMaterial;
     
         //审核状态 0:未审核
- /*1:审核通过正常
+ 1:审核通过正常
  2:审核不通过
- 3:该商户被禁停,此时如果AID未禁止那么仍然允许登陆*/
+ 3:该商户被禁停,此时如果AID未禁止那么仍然允许登陆
     @Column(name = "audit_state")
     private String auditState;
     

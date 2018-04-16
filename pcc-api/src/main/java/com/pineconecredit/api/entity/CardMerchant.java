@@ -9,7 +9,7 @@ import javax.persistence.*;
  *
  * @author ZhouRunBin
  * @email 1875222156@qq.com
- * @date 2018-04-16 23:11:01
+ * @date 2018-04-16 23:30:47
  */
 @Table(name = "card_merchant")
 public class CardMerchant implements Serializable{

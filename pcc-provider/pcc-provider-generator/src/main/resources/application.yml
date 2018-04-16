@@ -2,7 +2,7 @@ spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://10.10.5.64:3306/PineConeCredit?useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://192.168.8.211:3306/PineConeCredit?useUnicode=true&characterEncoding=UTF-8
         username: root
         password: 123456
     jackson:

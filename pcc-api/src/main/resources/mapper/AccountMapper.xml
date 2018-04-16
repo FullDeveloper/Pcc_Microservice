@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pineconecredit.api.mapper.AccountMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.pineconecredit.api.entity.Account" id="accountMap">
+        <result property="id" column="Id"/>
+        <result property="aid" column="aid"/>
+        <result property="accountType" column="account_type"/>
+        <result property="pid" column="pid"/>
+        <result property="regPhoneNumber" column="reg_phone_number"/>
+        <result property="password" column="password"/>
+        <result property="state" column="state"/>
+        <result property="selfInfo" column="self_info"/>
+        <result property="payQrcode" column="pay_qrcode"/>
+        <result property="receiveQrocde" column="receive_qrocde"/>
+        <result property="selfInfoUrl" column="self_info_url"/>
+        <result property="payQrcodeUrl" column="pay_qrcode_url"/>
+        <result property="receiveQrcodeUrl" column="receive_qrcode_url"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+        <result property="crtUser" column="crt_user"/>
+        <result property="crtName" column="crt_name"/>
+        <result property="crtHost" column="crt_host"/>
+        <result property="crtTime" column="crt_time"/>
+        <result property="updUser" column="upd_user"/>
+        <result property="updName" column="upd_name"/>
+        <result property="updTime" column="upd_time"/>
+        <result property="updHost" column="upd_host"/>
+    </resultMap>
+
+</mapper>

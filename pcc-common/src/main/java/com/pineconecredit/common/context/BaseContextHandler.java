@@ -59,13 +59,13 @@ public class BaseContextHandler {
 
     public static void setToken(String token){set(CommonConstants.CONTEXT_KEY_USER_TOKEN,token);}
 
-    public static void setName(String name){set(CommonConstants.CONTEXT_KEY_USER_NAME,name);}
+    public static void setAccountType(String name){set(CommonConstants.CONTEXT_KEY_USER_NAME,name);}
 
-    public static void setUserID(String userID){
+    public static void setAid(String userID){
         set(CommonConstants.CONTEXT_KEY_USER_ID,userID);
     }
 
-    public static void setUsername(String username){
+    public static void setPhoneNumber(String username){
         set(CommonConstants.CONTEXT_KEY_USERNAME,username);
     }
 

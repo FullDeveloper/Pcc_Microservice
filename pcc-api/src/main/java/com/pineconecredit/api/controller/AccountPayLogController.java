@@ -1,4 +1,4 @@
-package com.pineconecredit.api.controller;
+package com.pineconecredit.api.rest;
 
 import com.pineconecredit.common.controller.BaseController;
 import com.pineconecredit.api.biz.AccountPayLogBiz;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author ZhouRunBin
  * @email 1875222156@qq.com
- * @date 2018-04-16 23:11:01
+ * @date 2018-04-16 23:30:47
  */
 
 @Controller

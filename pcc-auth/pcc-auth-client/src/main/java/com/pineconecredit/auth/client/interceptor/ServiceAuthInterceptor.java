@@ -44,7 +44,7 @@ public class ServiceAuthInterceptor extends HandlerInterceptorAdapter {
         log.info("need authentication.......");
         String token = request.getHeader(serviceAuthConfig.getTokenHeader());
         IJWTInfo informationToken = serviceAuthUtil.getInformationToken(token);
-        String uniqueName = informationToken.getUniqueName();
+        String uniqueName = informationToken.getAid();
         List<String> allowedClients = serviceAuthUtil.getAllowedClient();
         for(String client : allowedClients){
             if(client.equals(uniqueName)){

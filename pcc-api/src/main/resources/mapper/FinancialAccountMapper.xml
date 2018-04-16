@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pineconecredit.api.mapper.FinancialAccountMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.pineconecredit.api.entity.FinancialAccount" id="financialAccountMap">
+        <result property="id" column="Id"/>
+        <result property="aid" column="aid"/>
+        <result property="cashAccount" column="cash_account"/>
+        <result property="freezeAccount" column="freeze_account"/>
+        <result property="commissionAccount" column="commission_account"/>
+        <result property="bankCardCount" column="bank_card_count"/>
+        <result property="virtualCardCount" column="virtual_card_count"/>
+        <result property="thirdPaymentAccount" column="third_payment_account"/>
+        <result property="publicName" column="public_name"/>
+        <result property="publicTaxFileNumber" column="public_tax_file_number"/>
+        <result property="publicAddress" column="public_address"/>
+        <result property="publicTelephone" column="public_telephone"/>
+        <result property="publicAccountBank" column="public_account_bank"/>
+        <result property="publicAccountName" column="public_account_name"/>
+        <result property="publicAccountNumber" column="public_account_number"/>
+    </resultMap>
+
+</mapper>

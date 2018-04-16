@@ -18,9 +18,9 @@ public class CommonConstants {
     //客户端是禁止异常
     public static final Integer EX_CLIENT_FORBIDDEN_CODE = 403031;
 
-    public static final String CONTEXT_KEY_USER_ID = "currentUserId";
-    public static final String CONTEXT_KEY_USERNAME = "currentUserName";
-    public static final String CONTEXT_KEY_USER_NAME = "currentUser";
+    public static final String CONTEXT_KEY_USER_ID = "currentAid";
+    public static final String CONTEXT_KEY_USERNAME = "currentPhoneNumber";
+    public static final String CONTEXT_KEY_USER_NAME = "currentAccountType";
     public static final String CONTEXT_KEY_USER_TOKEN = "currentUserToken";
 
 }

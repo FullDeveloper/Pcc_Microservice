@@ -12,7 +12,7 @@ public interface IJWTInfo {
      * 获取登陆手机号
      * @return
      */
-    String getRegPhoneNumber();
+    String getPhoneNumber();
 
     /**
      * 获取全系统唯一账号编号

@@ -14,12 +14,12 @@ import java.io.Serializable;
 @Data
 public class JWTInfo implements Serializable,IJWTInfo {
 
-    private String regPhoneNumber;
+    private String phoneNumber;
     private String aid;
     private String accountType;
 
-    public JWTInfo(String regPhoneNumber, String aid, String accountType) {
-        this.regPhoneNumber = regPhoneNumber;
+    public JWTInfo(String phoneNumber, String aid, String accountType) {
+        this.phoneNumber = phoneNumber;
         this.aid = aid;
         this.accountType = accountType;
     }

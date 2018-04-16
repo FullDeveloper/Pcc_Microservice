@@ -11,7 +11,7 @@ import com.pineconecredit.common.biz.BaseBiz;
  *
  * @author ZhouRunBin
  * @email 1875222156@qq.com
- * @date 2018-04-16 23:11:01
+ * @date 2018-04-16 23:30:47
  */
 @Service
 public class MerchantBiz extends BaseBiz<MerchantMapper,Merchant> {

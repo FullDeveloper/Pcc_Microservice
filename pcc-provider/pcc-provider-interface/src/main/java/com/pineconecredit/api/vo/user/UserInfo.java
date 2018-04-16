@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Data
 public class UserInfo implements Serializable {
 
-    private String regPhoneNumber;
+    private String phoneNumber;
 
     private String password;
 

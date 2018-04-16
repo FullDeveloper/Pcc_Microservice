@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pineconecredit.api.mapper.AppUserMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.pineconecredit.api.entity.AppUser" id="appUserMap">
+        <result property="id" column="Id"/>
+        <result property="aid" column="aid"/>
+        <result property="idCardNo" column="id_card_no"/>
+        <result property="authName" column="auth_name"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="photo" column="photo"/>
+        <result property="idCardFrontScan" column="id_card_front_scan"/>
+        <result property="idCardReverseScan" column="id_card_reverse_scan"/>
+        <result property="realNameAuth" column="real_name_auth"/>
+        <result property="alipayAuth" column="alipay_auth"/>
+        <result property="operatorAuth" column="operator_auth"/>
+        <result property="zhimaAuth" column="zhima_auth"/>
+        <result property="linkmanName1" column="linkman_name1"/>
+        <result property="linkmanRelation1" column="linkman_relation1"/>
+        <result property="linkmanMobile1" column="linkman_mobile1"/>
+        <result property="linkmanName2" column="linkman_name2"/>
+        <result property="linkmanRelation2" column="linkman_relation2"/>
+        <result property="linkmanMobile" column="linkman_mobile"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="address" column="address"/>
+        <result property="areaCode" column="area_code"/>
+    </resultMap>
+
+</mapper>

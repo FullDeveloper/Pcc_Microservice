@@ -1,7 +1,6 @@
 package com.pineconecredit.api.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
  *
  * @author ZhouRunBin
  * @email 1875222156@qq.com
- * @date 2018-04-16 23:11:01
+ * @date 2018-04-16 23:30:47
  */
 @Table(name = "merchant_shop")
 public class MerchantShop implements Serializable{
