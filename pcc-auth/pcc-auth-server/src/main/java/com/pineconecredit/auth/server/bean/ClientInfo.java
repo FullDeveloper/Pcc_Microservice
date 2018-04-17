@@ -37,20 +37,19 @@ public class ClientInfo implements IJWTInfo {
         this.name = name;
     }
 
+
     @Override
-    public String getUniqueName() {
+    public String getPhoneNumber() {
         return clientId;
     }
 
     @Override
-    public String getId() {
+    public String getAid() {
         return id;
     }
 
     @Override
-    public String getName() {
+    public String getAccountType() {
         return name;
     }
-
-
 }

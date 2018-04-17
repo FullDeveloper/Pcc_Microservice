@@ -1,4 +1,4 @@
-package com.pineconecredit.api.rest;
+package com.pineconecredit.api.controller;
 
 import com.pineconecredit.common.controller.BaseController;
 import com.pineconecredit.api.biz.MerchantShopBiz;

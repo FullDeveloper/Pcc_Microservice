@@ -3,13 +3,16 @@ package com.pineconecredit.api.config;
 import com.pineconecredit.auth.client.interceptor.ServiceAuthInterceptor;
 import com.pineconecredit.auth.client.interceptor.UserAuthInterceptor;
 import com.pineconecredit.common.handler.GlobalExceptionHandler;
+import com.pineconecredit.common.resolver.FileFieldParamResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Create By Project Pcc_Microservice
@@ -24,6 +27,15 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Bean
     GlobalExceptionHandler getGlobalExceptionHandler() {
         return new GlobalExceptionHandler();
+    }
+
+
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+
+        // 注册FileFieldParamResolver的参数分解器
+        argumentResolvers.add(new FileFieldParamResolver());
     }
 
     /*@Override

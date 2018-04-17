@@ -18,14 +18,14 @@ public class BaseController<Biz extends BaseBiz, Entity> {
     @Autowired
     protected Biz baseBiz;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
     @ResponseBody
     public ObjectRestResponse<Entity> add(@RequestBody Entity entity) {
         baseBiz.insertSelective(entity);
         return new ObjectRestResponse<Entity>();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ObjectRestResponse<Entity> get(@PathVariable int id) {
         ObjectRestResponse<Entity> entityObjectRestResponse = new ObjectRestResponse<>();
@@ -34,14 +34,14 @@ public class BaseController<Biz extends BaseBiz, Entity> {
         return entityObjectRestResponse;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ObjectRestResponse<Entity> update(@RequestBody Entity entity) {
         baseBiz.updateSelectiveById(entity);
         return new ObjectRestResponse<Entity>();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ObjectRestResponse<Entity> remove(@PathVariable int id) {
         baseBiz.deleteById(id);

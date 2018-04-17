@@ -5,6 +5,7 @@ import com.pineconecredit.auth.server.bean.JwtAuthenticationRequest;
 import com.pineconecredit.auth.server.bean.JwtAuthenticationResponse;
 import com.pineconecredit.auth.server.mapper.ClientMapper;
 import com.pineconecredit.auth.server.service.AuthService;
+import com.pineconecredit.common.result.ObjectRestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,11 +37,35 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @RequestMapping(value = "token", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(
+    @RequestMapping(value = "/app/token", method = RequestMethod.POST)
+    public ResponseEntity<?> createAppAuthenticationToken(
             @RequestBody JwtAuthenticationRequest authenticationRequest) throws Exception {
         log.info(authenticationRequest.getPhoneNumber()+" require logging...");
-        final String token = authService.login(authenticationRequest);
+        final String token = authService.validateForApp(authenticationRequest);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+    }
+
+    @RequestMapping(value = "/card-merchant/token", method = RequestMethod.POST)
+    public ResponseEntity<?> createCardMerchantAuthenticationToken(
+            @RequestBody JwtAuthenticationRequest authenticationRequest) throws Exception {
+        log.info(authenticationRequest.getPhoneNumber()+" require logging...");
+        final String token = authService.validateForCardMerchant(authenticationRequest);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+    }
+
+    @RequestMapping(value = "/merchant/token", method = RequestMethod.POST)
+    public ResponseEntity<?> createMerchantAuthenticationToken(
+            @RequestBody JwtAuthenticationRequest authenticationRequest) throws Exception {
+        log.info(authenticationRequest.getPhoneNumber()+" require logging...");
+        final String token = authService.validateForMerchant(authenticationRequest);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+    }
+
+    @RequestMapping(value = "/platform/token", method = RequestMethod.POST)
+    public ResponseEntity<?> createPlatformAuthenticationToken(
+            @RequestBody JwtAuthenticationRequest authenticationRequest) throws Exception {
+        log.info(authenticationRequest.getPhoneNumber()+" require logging...");
+        final String token = authService.validateForPlatform(authenticationRequest);
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 

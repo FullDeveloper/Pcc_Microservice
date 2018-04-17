@@ -15,4 +15,12 @@ import com.pineconecredit.common.biz.BaseBiz;
  */
 @Service
 public class AccountBiz extends BaseBiz<AccountMapper,Account> {
+
+    public Account getAccountByUserNameAndType(String phoneNumber,String accountType){
+        Account account = new Account();
+        account.setRegPhoneNumber(phoneNumber);
+        account.setAccountType(accountType);
+        return mapper.selectOne(account);
+    }
+
 }

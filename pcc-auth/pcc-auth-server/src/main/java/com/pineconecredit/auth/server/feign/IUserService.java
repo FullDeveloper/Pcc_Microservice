@@ -2,6 +2,7 @@ package com.pineconecredit.auth.server.feign;
 
 import com.pineconecredit.api.vo.user.UserInfo;
 import com.pineconecredit.auth.server.bean.JwtAuthenticationRequest;
+import com.pineconecredit.common.result.ObjectRestResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface IUserService {
 
     @RequestMapping(value = "/")
-    UserInfo validateForApp(JwtAuthenticationRequest authenticationRequest);
+    ObjectRestResponse<UserInfo> validateForApp(JwtAuthenticationRequest authenticationRequest);
 
     @RequestMapping(value = "/")
-    UserInfo validateForMerchant(JwtAuthenticationRequest authenticationRequest);
+    ObjectRestResponse<UserInfo> validateForMerchant(JwtAuthenticationRequest authenticationRequest);
 
     @RequestMapping(value = "/")
-    UserInfo validateForCardMerchant(JwtAuthenticationRequest authenticationRequest);
+    ObjectRestResponse<UserInfo> validateForCardMerchant(JwtAuthenticationRequest authenticationRequest);
 
     @RequestMapping(value = "/")
-    UserInfo validateForPlatform(JwtAuthenticationRequest authenticationRequest);
+    ObjectRestResponse<UserInfo> validateForPlatform(JwtAuthenticationRequest authenticationRequest);
 }

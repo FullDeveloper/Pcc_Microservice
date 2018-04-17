@@ -6,6 +6,7 @@ import com.pineconecredit.auth.server.bean.JwtAuthenticationRequest;
 import com.pineconecredit.auth.server.feign.IUserService;
 import com.pineconecredit.auth.server.service.AuthService;
 import com.pineconecredit.auth.server.util.JwtTokenUtil;
+import com.pineconecredit.common.result.ObjectRestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -44,40 +45,37 @@ public class AuthServiceImpl implements AuthService {
      *  10:商家电商平台虚拟门店员工_绑定权限角色模板
      *  11:信用卡销售公司主账户
      *  12:信用卡销售公司员工_绑定权限角色模板
-     * @param authenticationRequest
+     * @param
      * @return
      * @throws Exception
      */
-    @Override
-    public String login(JwtAuthenticationRequest authenticationRequest) throws Exception {
-        UserInfo userInfo = null;
-        String accountType = authenticationRequest.getAccountType();
-        if("2".equals(accountType)){
-            userInfo = userService.validateForApp(authenticationRequest);
-        }else if(  "5".equals(accountType)
-                || "6".equals(accountType)
-                || "7".equals(accountType)
-                || "8".equals(accountType)
-                || "9".equals(accountType)
-                || "10".equals(accountType)){
-            userInfo = userService.validateForMerchant(authenticationRequest);
-        }else if(  "3".equals(accountType)
-                || "4".equals(accountType)){
-            userInfo = userService.validateForCardMerchant(authenticationRequest);
-        }else if(  "0".equals(accountType)
-                || "1".equals(accountType)){
-            userInfo = userService.validateForPlatform(authenticationRequest);
-        }
-        String token = "";
-        if (!StringUtils.isEmpty(userInfo.getAid())) {
-            token = jwtTokenUtil.generateToken(new JWTInfo(userInfo.getPhoneNumber(), userInfo.getAid() + "", userInfo.getAccountType()));
-        }
-        return token;
-    }
 
     @Override
     public void validate(String token) throws Exception {
         jwtTokenUtil.getInfoFromToken(token);
+    }
+
+    @Override
+    public String validateForApp(JwtAuthenticationRequest authenticationRequest) {
+        return null;
+    }
+
+    @Override
+    public String validateForMerchant(JwtAuthenticationRequest authenticationRequest) {
+
+
+
+        return null;
+    }
+
+    @Override
+    public String validateForCardMerchant(JwtAuthenticationRequest authenticationRequest) {
+        return null;
+    }
+
+    @Override
+    public String validateForPlatform(JwtAuthenticationRequest authenticationRequest) {
+        return null;
     }
 
     @Override

@@ -68,9 +68,9 @@ private static final long serialVersionUID=1L;
     private String otherMaterial;
     
         //审核状态 0:未审核
- 1:审核通过正常
+ /*审核通过正常1:审核通过正常
  2:审核不通过
- 3:该商户被禁停,此时如果AID未禁止那么仍然允许登陆
+ 3:该商户被禁停,此时如果AID未禁止那么仍然允许登陆*/
     @Column(name = "audit_state")
     private String auditState;
     

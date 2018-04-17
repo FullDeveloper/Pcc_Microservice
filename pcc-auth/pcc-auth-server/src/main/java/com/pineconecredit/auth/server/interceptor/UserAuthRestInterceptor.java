@@ -32,9 +32,9 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         String token = request.getHeader(userConfiguration.getUserTokenHeader());
         IJWTInfo infoFromToken = jwtTokenUtil.getInfoFromToken(token);
-        BaseContextHandler.setUsername(infoFromToken.getUniqueName());
-        BaseContextHandler.setName(infoFromToken.getName());
-        BaseContextHandler.setUserID(infoFromToken.getId());
+        BaseContextHandler.setPhoneNumber(infoFromToken.getPhoneNumber());
+        BaseContextHandler.setAid(infoFromToken.getAid());
+        BaseContextHandler.setAccountType(infoFromToken.getAccountType());
         return super.preHandle(request, response, handler);
     }
 
